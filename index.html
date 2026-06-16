@@ -72,9 +72,9 @@
 
     /* ── MAIN ── */
     .main { margin-left: var(--sidebar); flex: 1; padding: 2.25rem 2.5rem; }
-    #app { animation: fadeUp 0.2s ease both; }
+    #app { animation: fadeUp 0.22s ease both; }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -118,23 +118,55 @@
       background: var(--white); border: 1px solid var(--border);
       border-radius: 14px; padding: 1.35rem 1.25rem 1.2rem;
       cursor: pointer; position: relative; overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
+      transition: box-shadow 0.22s, transform 0.22s;
       display: flex; flex-direction: column;
+      animation: fadeUp 0.3s ease both;
     }
     .assignment-card-home::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 4px; background: var(--c-accent);
+      transition: height 0.2s ease;
     }
-    .assignment-card-home:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .assignment-card-home:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.12); transform: translateY(-4px); }
+    .assignment-card-home:hover::before { height: 6px; }
+
     .cc-icon-wrap {
       width: 42px; height: 42px; border-radius: 10px;
       background: var(--c-bg); display: flex; align-items: center;
       justify-content: center; font-size: 1.25rem; margin-bottom: 0.9rem; flex-shrink: 0;
+      transition: transform 0.2s ease;
     }
+    .assignment-card-home:hover .cc-icon-wrap { transform: scale(1.08); }
+
     .cc-name  { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.2rem; line-height: 1.3; }
-    .cc-meta  { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.9rem; }
-    .cc-status { margin-top: auto; font-size: 0.75rem; font-weight: 500; color: var(--c-accent); }
+    .cc-meta  { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.7rem; }
+    .cc-status { margin-top: auto; font-size: 0.75rem; font-weight: 500; color: var(--c-accent); padding-top: 0.6rem; }
     .cc-status.muted { color: var(--muted); }
+
+    /* ── COMPETENCY CHIP (home card) ── */
+    .cc-competency {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.67rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 0.22rem 0.6rem;
+      border-radius: 99px; border: 1px solid; width: fit-content;
+      margin-bottom: 0.1rem;
+    }
+    .cc-competency::before { content: '●'; font-size: 0.45rem; }
+
+    /* ── COMPETENCY CHIP (detail header) ── */
+    .competency-chip-lg {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.38rem 0.9rem;
+      border-radius: 99px; border: 1.5px solid; flex-shrink: 0;
+      animation: chipGlow 3s ease-in-out infinite;
+    }
+    .competency-chip-lg::before { content: '◆'; font-size: 0.5rem; }
+
+    @keyframes chipGlow {
+      0%, 100% { opacity: 1;    box-shadow: 0 0 0 0    transparent; }
+      50%       { opacity: 0.85; box-shadow: 0 0 8px 2px var(--chip-glow); }
+    }
 
     /* ── DETAIL HEADER ── */
     .detail-header {
@@ -142,6 +174,7 @@
       border-radius: 14px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem;
       display: flex; align-items: center; gap: 1.25rem;
       border-top: 4px solid var(--c-accent);
+      animation: fadeUp 0.2s ease both;
     }
     .back-btn {
       background: var(--bg); border: 1px solid var(--border);
@@ -162,16 +195,21 @@
 
     /* ── LINK BLOCKS ── */
     .link-list { display: flex; flex-direction: column; gap: 0; }
-
-    /* Each block = row + optional embed below */
     .link-block {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 12px; margin-bottom: 0.85rem; overflow: hidden;
+      animation: fadeUp 0.25s ease both;
+      transition: box-shadow 0.18s;
     }
+    .link-block:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
     .link-row {
       display: flex; align-items: center; gap: 1.1rem;
       padding: 1.1rem 1.4rem;
+      transition: background 0.15s;
     }
+    .link-row:hover { background: #FAFAFA; }
+
     .link-row-icon {
       width: 36px; height: 36px; border-radius: 9px;
       background: var(--c-bg); color: var(--c-accent);
@@ -187,24 +225,12 @@
     .link-row-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
 
     /* ── EMBEDDED RUBRIC ── */
-    .doc-embed {
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-      display: none;
-    }
-    .doc-embed iframe {
-      width: 100%; height: 520px; display: block; border: none;
-    }
+    .doc-embed { border-top: 1px solid var(--border); background: var(--bg); display: none; }
+    .doc-embed iframe { width: 100%; height: 520px; display: block; border: none; }
 
     /* ── YOUTUBE EMBED ── */
-    .youtube-embed {
-      border-top: 1px solid var(--border);
-      position: relative; aspect-ratio: 16 / 9;
-    }
-    .youtube-embed iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; border: none; display: block;
-    }
+    .youtube-embed { border-top: 1px solid var(--border); position: relative; aspect-ratio: 16 / 9; }
+    .youtube-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; }
 
     /* ── BUTTONS ── */
     .btn {
@@ -234,7 +260,7 @@
       .main { margin-left: 0; padding: 1rem; }
       .hero { padding: 1.5rem; }
       .hero-name { font-size: 1.6rem; }
-      .detail-header { flex-wrap: wrap; }
+      .detail-header { flex-wrap: wrap; gap: 0.75rem; }
       .link-row { flex-wrap: wrap; }
     }
   </style>
@@ -273,9 +299,8 @@
 
    FIELDS:
      coversheet  →  Link to your Google Doc cover sheet
-     rubric      →  Link to rubric (will be embeddable inline)
-     artifact    →  Artifact link
-                    (YouTube URLs will be auto-embedded as a video player)
+     rubric      →  Link to rubric (embeds inline with toggle)
+     artifact    →  Artifact link (YouTube URLs auto-embed as video)
 
    C-SPAN ONLY:
      project     →  Link to Project (only appears on the C-SPAN page)
@@ -292,9 +317,10 @@ const ASSIGNMENTS = [
     icon:      "👔",
     color:     "#7C3AED",
     colorBg:   "#F5F0FF",
-		coversheet: "https://docs.google.com/document/d/1TiVKgLyd_QJ-EKOipUYgUDIrrjYlYSolB9ezrYYWWlg/edit?usp=drivesdk",  // ← Paste Link to Coversheet here
-    rubric:     "https://drive.google.com/file/d/1UU-VIji6GeNv5bXtm3vWLnUxZSM5NqEs/view?usp=drivesdk",  // ← Paste Link to Rubric here
-    artifact:   "https://drive.google.com/file/d/1itrpVpv9156t6EAprfidzeMlZcxhMwlA/view?usp=drivesdk",  // ← Paste Artifact link here
+    competency: { label: "Critical Thinking",      color: "#7C3AED", bg: "#F5F0FF" },
+    coversheet: "https://docs.google.com/document/d/1TiVKgLyd_QJ-EKOipUYgUDIrrjYlYSolB9ezrYYWWlg/edit?usp=drivesdk",
+    rubric:     "https://drive.google.com/file/d/1UU-VIji6GeNv5bXtm3vWLnUxZSM5NqEs/view?usp=drivesdk",
+    artifact:   "https://drive.google.com/file/d/1itrpVpv9156t6EAprfidzeMlZcxhMwlA/view?usp=drivesdk",
   },
 
   {
@@ -303,10 +329,11 @@ const ASSIGNMENTS = [
     icon:      "📺",
     color:     "#1D4ED8",
     colorBg:   "#EFF4FF",
-    coversheet: "https://docs.google.com/document/d/13N_GT71PJH7E4l-E64kWXP_4PSJ_49NOTmgQTNeaRMg/edit?usp=drivesdk",  // ← Paste Link to Coversheet here
-    rubric:     "https://drive.google.com/file/d/1VbSNoFQxWlKhPOM9yeWjrQMBPQEKLVuX/view?usp=drivesdk",  // ← Paste Link to Rubric here
-    artifact:   "https://youtu.be/37WBf9vvkzs?is=ZDy8sFjQJfEQJB8B",  // ← Paste Artifact link here
-    project:    "https://youtu.be/37WBf9vvkzs?is=ZDy8sFjQJfEQJB8B",   // ← Paste Link to Project here (C-SPAN only)
+    competency: { label: "Media & Communications", color: "#0284C7", bg: "#F0F9FF" },
+    coversheet: "https://docs.google.com/document/d/13N_GT71PJH7E4l-E64kWXP_4PSJ_49NOTmgQTNeaRMg/edit?usp=drivesdk",
+    rubric:     "https://drive.google.com/file/d/1VbSNoFQxWlKhPOM9yeWjrQMBPQEKLVuX/view?usp=drivesdk",
+    artifact:   "https://youtu.be/37WBf9vvkzs?is=ZDy8sFjQJfEQJB8B",
+    project:    "https://youtu.be/37WBf9vvkzs?is=ZDy8sFjQJfEQJB8B",
   },
 
   {
@@ -315,9 +342,10 @@ const ASSIGNMENTS = [
     icon:      "⚖️",
     color:     "#C2410C",
     colorBg:   "#FFF4EE",
-    coversheet: "",   // ← Paste Link to Coversheet here
-    rubric:     "https://drive.google.com/file/d/19EI-dlDOTflsa3DO75TttPli6zXhf3Uo/view?usp=drivesdk",   // ← Paste Link to Rubric here (will embed inline)
-    artifact:   "",   // ← Paste Artifact link here
+    competency: { label: "Social Awareness",        color: "#16A34A", bg: "#F0FDF4" },
+    coversheet: "",
+    rubric:     "https://drive.google.com/file/d/19EI-dlDOTflsa3DO75TttPli6zXhf3Uo/view?usp=drivesdk",
+    artifact:   "",
   },
 
   {
@@ -326,9 +354,10 @@ const ASSIGNMENTS = [
     icon:      "🏛️",
     color:     "#0F766E",
     colorBg:   "#EDFAF8",
-    coversheet: "",   // ← Paste Link to Coversheet here
-    rubric:     "https://drive.google.com/file/d/1_FDX743ypfUrHJXheg1IZh9oYvvYyG_m/view?usp=drivesdk",   // ← Paste Link to Rubric here (will embed inline)
-    artifact:   "https://drive.google.com/file/d/1c_aMkIauE64t6c2uefxvqj6e1drOCv3N/view?usp=drivesdk",   // ← Paste Artifact link here
+    competency: { label: "Critical Thinking",       color: "#7C3AED", bg: "#F5F0FF" },
+    coversheet: "",
+    rubric:     "https://drive.google.com/file/d/1_FDX743ypfUrHJXheg1IZh9oYvvYyG_m/view?usp=drivesdk",
+    artifact:   "https://drive.google.com/file/d/1c_aMkIauE64t6c2uefxvqj6e1drOCv3N/view?usp=drivesdk",
   }
 
 ];
@@ -337,21 +366,16 @@ const ASSIGNMENTS = [
    🚫  DO NOT EDIT BELOW THIS LINE
 ===================================================================== */
 
-/* ── URL HELPERS ── */
-
 function toPreviewUrl(url) {
   if (!url) return '';
-  // Google Docs
   if (url.includes('docs.google.com/document')) {
     const id = url.match(/\/document\/d\/([^\/\?]+)/)?.[1];
     return id ? `https://docs.google.com/document/d/${id}/preview` : url;
   }
-  // Google Drive file
   if (url.includes('drive.google.com/file/d/')) {
     const id = url.match(/\/file\/d\/([^\/\?]+)/)?.[1];
     return id ? `https://drive.google.com/file/d/${id}/preview` : url;
   }
-  // Google Slides
   if (url.includes('docs.google.com/presentation')) {
     const id = url.match(/\/presentation\/d\/([^\/\?]+)/)?.[1];
     return id ? `https://docs.google.com/presentation/d/${id}/preview` : url;
@@ -361,12 +385,10 @@ function toPreviewUrl(url) {
 
 function toYouTubeEmbed(url) {
   if (!url) return null;
-  // youtu.be/ID
   const short = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
   if (short) return `https://www.youtube.com/embed/${short[1]}`;
-  // youtube.com/watch?v=ID
-  const long = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
-  if (long) return `https://www.youtube.com/embed/${long[1]}`;
+  const long  = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+  if (long)  return `https://www.youtube.com/embed/${long[1]}`;
   return null;
 }
 
@@ -374,7 +396,6 @@ function isYouTube(url) {
   return !!url && (url.includes('youtube.com') || url.includes('youtu.be'));
 }
 
-/* ── TOGGLE RUBRIC EMBED ── */
 function toggleEmbed(id, btn) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -383,12 +404,11 @@ function toggleEmbed(id, btn) {
   btn.textContent  = showing ? 'Expand Rubric ▾' : 'Collapse ▴';
 }
 
-/* ── RENDER ENGINE ── */
 function render(html) {
   const app = document.getElementById('app');
   app.innerHTML = html;
   app.style.animation = 'none';
-  requestAnimationFrame(() => { app.style.animation = 'fadeUp 0.2s ease both'; });
+  requestAnimationFrame(() => { app.style.animation = 'fadeUp 0.22s ease both'; });
 }
 
 function statusBadge(url) {
@@ -397,28 +417,22 @@ function statusBadge(url) {
     : `<span class="status-missing">No link added yet</span>`;
 }
 
-/*
-  linkBlock(icon, label, url, type, blockId)
-  type: 'link' | 'rubric' | 'youtube'
-*/
-function linkBlock(icon, label, url, type, blockId) {
-  let embedHtml   = '';
-  let toggleBtn   = '';
-  let openBtn     = url
+function linkBlock(icon, label, url, type, blockId, index) {
+  let embedHtml = '';
+  let toggleBtn = '';
+  let openBtn   = url
     ? `<a class="btn btn-primary" href="${url}" target="_blank">Open ↗</a>`
     : `<span class="btn-disabled">No Link Yet</span>`;
 
   if (type === 'rubric' && url) {
     const preview = toPreviewUrl(url);
     toggleBtn = `<button class="btn btn-ghost" onclick="toggleEmbed('${blockId}', this)">Expand Rubric ▾</button>`;
-    embedHtml = `<div class="doc-embed" id="${blockId}">
-      <iframe src="${preview}" allowfullscreen></iframe>
-    </div>`;
+    embedHtml = `<div class="doc-embed" id="${blockId}"><iframe src="${preview}" allowfullscreen></iframe></div>`;
   }
 
   if (type === 'youtube') {
     const embedUrl = url ? toYouTubeEmbed(url) : null;
-    openBtn = url
+    openBtn   = url
       ? `<a class="btn btn-primary" href="${url}" target="_blank">Open in YouTube ↗</a>`
       : `<span class="btn-disabled">No Link Yet</span>`;
     embedHtml = embedUrl
@@ -426,8 +440,10 @@ function linkBlock(icon, label, url, type, blockId) {
       : '';
   }
 
+  const delay = `animation-delay: ${index * 0.07}s`;
+
   return `
-    <div class="link-block">
+    <div class="link-block" style="${delay}">
       <div class="link-row">
         <div class="link-row-icon">${icon}</div>
         <div class="link-row-info">
@@ -463,17 +479,23 @@ function goHome() {
     </div>
 
     <div class="cards-grid">
-      ${ASSIGNMENTS.map(a => {
+      ${ASSIGNMENTS.map((a, i) => {
         const fields = [a.coversheet, a.rubric, a.artifact, a.project].filter(f => f !== undefined);
         const filled = fields.filter(Boolean).length;
         const total  = fields.length;
+        const c      = a.competency;
+        const chipBorder = c.color + '55';
         return `
           <div class="assignment-card-home"
-               style="--c-accent:${a.color}; --c-bg:${a.colorBg}"
+               style="--c-accent:${a.color}; --c-bg:${a.colorBg}; animation-delay:${i * 0.08}s"
                onclick="goDetail('${a.id}')">
             <div class="cc-icon-wrap">${a.icon}</div>
             <div class="cc-name">${a.name}</div>
             <div class="cc-meta">${filled} of ${total} links added</div>
+            <span class="cc-competency"
+                  style="color:${c.color}; background:${c.bg}; border-color:${chipBorder}">
+              ${c.label}
+            </span>
             <div class="cc-status ${filled > 0 ? '' : 'muted'}">
               ${filled > 0 ? 'View links →' : 'No links yet'}
             </div>
@@ -487,19 +509,20 @@ function goHome() {
 function goDetail(id) {
   const a = ASSIGNMENTS.find(x => x.id === id);
   if (!a) return;
+  const c = a.competency;
+  const chipBorder = c.color + '55';
+  const chipGlow   = c.color + '44';
 
-  // Build link blocks
   const blocks = [
-    linkBlock('📄', 'Link to Coversheet', a.coversheet, 'link',    `${id}-cs`),
-    linkBlock('📋', 'Link to Rubric',     a.rubric,     'rubric',  `${id}-rubric`),
+    linkBlock('📄', 'Link to Coversheet', a.coversheet, 'link',   `${id}-cs`,       0),
+    linkBlock('📋', 'Link to Rubric',     a.rubric,     'rubric', `${id}-rubric`,    1),
   ];
 
-  // Artifact — YouTube for C-SPAN, regular link for others
   if (a.id === 'cspan') {
-    blocks.push(linkBlock('▶️', 'Link to Project',  a.artifact, 'youtube', `${id}-artifact`));
-    blocks.push(linkBlock('🗂️', 'Artifact', a.project, 'link', `${id}-project`));
+    blocks.push(linkBlock('▶️', 'Artifact (Video)', a.artifact, 'youtube', `${id}-artifact`, 2));
+    blocks.push(linkBlock('🗂️', 'Artifact',         a.project,  'link',    `${id}-project`,  3));
   } else {
-    blocks.push(linkBlock('🗂️', 'Artifact', a.artifact, 'link', `${id}-artifact`));
+    blocks.push(linkBlock('🗂️', 'Artifact', a.artifact, 'link', `${id}-artifact`, 2));
   }
 
   render(`
@@ -512,6 +535,10 @@ function goDetail(id) {
           <div class="detail-header-sub">Assignment links</div>
         </div>
       </div>
+      <span class="competency-chip-lg"
+            style="color:${c.color}; background:${c.bg}; border-color:${chipBorder}; --chip-glow:${chipGlow}">
+        ${c.label}
+      </span>
     </div>
 
     <div class="section-heading">
