@@ -21,25 +21,18 @@
     }
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      min-height: 100vh;
+      background: var(--bg); color: var(--text);
+      display: flex; min-height: 100vh;
     }
 
     /* ── SIDEBAR ── */
     .sidebar {
-      width: var(--sidebar);
-      background: var(--dark);
+      width: var(--sidebar); background: var(--dark);
       position: fixed; top: 0; left: 0; height: 100vh;
       display: flex; flex-direction: column;
-      padding: 1.75rem 1.4rem 1.4rem;
-      z-index: 200;
+      padding: 1.75rem 1.4rem 1.4rem; z-index: 200;
     }
-    .brand {
-      display: flex; align-items: center; gap: 0.65rem;
-      margin-bottom: 2.25rem;
-    }
+    .brand { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 2.25rem; }
     .brand-avatar {
       width: 38px; height: 38px; border-radius: 10px;
       background: linear-gradient(135deg, var(--gold), #e08a00);
@@ -106,31 +99,21 @@
       font-size: 2.2rem; color: var(--white); line-height: 1.15; margin-bottom: 0.5rem;
     }
     .hero-name span { color: var(--gold); }
-    .hero-desc {
-      font-size: 0.88rem; color: rgba(255,255,255,0.5);
-      max-width: 420px; line-height: 1.6;
-    }
+    .hero-desc { font-size: 0.88rem; color: rgba(255,255,255,0.5); max-width: 420px; line-height: 1.6; }
     .hero-chips { display: flex; gap: 0.6rem; margin-top: 1.25rem; flex-wrap: wrap; }
     .hero-chip {
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.6); font-size: 0.75rem;
-      padding: 0.3rem 0.8rem; border-radius: 99px;
+      color: rgba(255,255,255,0.6); font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 99px;
     }
-    .hero-chip.gold {
-      background: rgba(245,166,35,0.15); border-color: rgba(245,166,35,0.35); color: var(--gold);
-    }
+    .hero-chip.gold { background: rgba(245,166,35,0.15); border-color: rgba(245,166,35,0.35); color: var(--gold); }
 
     /* ── SECTION HEADING ── */
     .section-heading { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; }
     .section-heading h2 { font-size: 1rem; font-weight: 600; color: var(--text); white-space: nowrap; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* ── ASSIGNMENT CARDS (Home grid) ── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 1rem;
-    }
+    /* ── HOME CARDS ── */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
     .assignment-card-home {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 14px; padding: 1.35rem 1.25rem 1.2rem;
@@ -142,9 +125,7 @@
       content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 4px; background: var(--c-accent);
     }
-    .assignment-card-home:hover {
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px);
-    }
+    .assignment-card-home:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
     .cc-icon-wrap {
       width: 42px; height: 42px; border-radius: 10px;
       background: var(--c-bg); display: flex; align-items: center;
@@ -152,16 +133,13 @@
     }
     .cc-name  { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.2rem; line-height: 1.3; }
     .cc-meta  { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.9rem; }
-    .cc-status {
-      margin-top: auto; font-size: 0.75rem; font-weight: 500; color: var(--c-accent);
-    }
+    .cc-status { margin-top: auto; font-size: 0.75rem; font-weight: 500; color: var(--c-accent); }
     .cc-status.muted { color: var(--muted); }
 
-    /* ── ASSIGNMENT DETAIL VIEW ── */
+    /* ── DETAIL HEADER ── */
     .detail-header {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.5rem 1.75rem;
-      margin-bottom: 1.5rem;
+      border-radius: 14px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem;
       display: flex; align-items: center; gap: 1.25rem;
       border-top: 4px solid var(--c-accent);
     }
@@ -179,17 +157,20 @@
       background: var(--c-bg); display: flex; align-items: center;
       justify-content: center; font-size: 1.4rem; flex-shrink: 0;
     }
-    .detail-header-name {
-      font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text);
-    }
-    .detail-header-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+    .detail-header-name { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text); }
+    .detail-header-sub  { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
 
-    /* ── LINK ROWS ── */
-    .link-list { display: flex; flex-direction: column; gap: 0.85rem; }
-    .link-row {
+    /* ── LINK BLOCKS ── */
+    .link-list { display: flex; flex-direction: column; gap: 0; }
+
+    /* Each block = row + optional embed below */
+    .link-block {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.1rem 1.4rem;
+      border-radius: 12px; margin-bottom: 0.85rem; overflow: hidden;
+    }
+    .link-row {
       display: flex; align-items: center; gap: 1.1rem;
+      padding: 1.1rem 1.4rem;
     }
     .link-row-icon {
       width: 36px; height: 36px; border-radius: 9px;
@@ -197,18 +178,39 @@
       font-size: 1rem; display: flex; align-items: center;
       justify-content: center; flex-shrink: 0;
     }
-    .link-row-info { flex: 1; }
-    .link-row-label { font-weight: 600; font-size: 0.93rem; color: var(--text); }
+    .link-row-info { flex: 1; min-width: 0; }
+    .link-row-label  { font-weight: 600; font-size: 0.93rem; color: var(--text); }
     .link-row-status { font-size: 0.75rem; margin-top: 0.18rem; }
-    .status-linked  { color: #16A34A; font-weight: 500; }
+    .status-linked   { color: #16A34A; font-weight: 500; }
     .status-linked::before { content: '✓  '; }
-    .status-missing { color: var(--muted); }
+    .status-missing  { color: var(--muted); }
+    .link-row-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+
+    /* ── EMBEDDED RUBRIC ── */
+    .doc-embed {
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      display: none;
+    }
+    .doc-embed iframe {
+      width: 100%; height: 520px; display: block; border: none;
+    }
+
+    /* ── YOUTUBE EMBED ── */
+    .youtube-embed {
+      border-top: 1px solid var(--border);
+      position: relative; aspect-ratio: 16 / 9;
+    }
+    .youtube-embed iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none; display: block;
+    }
 
     /* ── BUTTONS ── */
     .btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.52rem 1.1rem; border-radius: 9px;
-      font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 500;
+      padding: 0.5rem 1rem; border-radius: 9px;
+      font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500;
       cursor: pointer; border: none; text-decoration: none;
       white-space: nowrap; transition: all 0.14s;
     }
@@ -218,8 +220,8 @@
     .btn-ghost:hover { background: var(--border); color: var(--text); }
     .btn-disabled {
       display: inline-flex; align-items: center;
-      padding: 0.52rem 1.1rem; border-radius: 9px;
-      font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 500;
+      padding: 0.5rem 1rem; border-radius: 9px;
+      font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500;
       background: var(--bg); color: #C0C0CC; border: 1px solid var(--border);
       white-space: nowrap; cursor: not-allowed;
     }
@@ -233,12 +235,12 @@
       .hero { padding: 1.5rem; }
       .hero-name { font-size: 1.6rem; }
       .detail-header { flex-wrap: wrap; }
+      .link-row { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 
-<!-- ──────────────── SIDEBAR ──────────────── -->
 <nav class="sidebar">
   <div class="brand">
     <div class="brand-avatar">EL</div>
@@ -247,18 +249,15 @@
       <span class="brand-sub">Academic Portfolio</span>
     </div>
   </div>
-
   <div class="nav-section">
     <span class="nav-label">Navigation</span>
     <button class="nav-item active" id="nav-home" onclick="goHome()">
       <span class="nav-icon">🏠</span> My Assignments
     </button>
   </div>
-
   <div class="sidebar-footer">2025–2026 Academic Year</div>
 </nav>
 
-<!-- ──────────────── APP ──────────────── -->
 <main class="main">
   <div id="app"></div>
 </main>
@@ -269,13 +268,17 @@
 
    ✏️  YOUR LINKS — EDIT THIS SECTION
    ─────────────────────────────────────────────────────────────────────
-   Paste your Google Doc / Drive URLs inside the quotes "".
+   Paste your URLs inside the quotes "".
    Leave as "" if you don't have a link yet.
 
-   FIELDS PER ASSIGNMENT:
-     coversheet  →  Link to Coversheet (the Google Doc cover sheet)
-     rubric      →  Link to Rubric
+   FIELDS:
+     coversheet  →  Link to your Google Doc cover sheet
+     rubric      →  Link to rubric (will be embeddable inline)
      artifact    →  Artifact link
+                    (YouTube URLs will be auto-embedded as a video player)
+
+   C-SPAN ONLY:
+     project     →  Link to Project (only appears on the C-SPAN page)
 
    Save the file and refresh your browser to see changes.
 
@@ -284,47 +287,48 @@
 const ASSIGNMENTS = [
 
   {
-    id: "debate",
-    name: "Debates",
-    icon: "👔",
-    color:   "#7C3AED",
-    colorBg: "#F5F0FF",
-    coversheet: "",  // ← Paste Link to Coversheet here
-    rubric:     "",  // ← Paste Link to Rubric here
-    artifact:   "",  // ← Paste Artifact link here
+    id:        "debate",
+    name:      "Debates",
+    icon:      "👔",
+    color:     "#7C3AED",
+    colorBg:   "#F5F0FF",
+    coversheet: "",   // ← Paste Link to Coversheet here
+    rubric:     "",   // ← Paste Link to Rubric here (will embed inline)
+    artifact:   "",   // ← Paste Artifact link here
   },
 
   {
-    id: "cspan",
-    name: "C-SPAN",
-    icon: "📺",
-    color:   "#1D4ED8",
-    colorBg: "#EFF4FF",
-    coversheet: "",  // ← Paste Link to Coversheet here
-    rubric:     "",  // ← Paste Link to Rubric here
-    artifact:   "",  // ← Paste Artifact link here
+    id:        "cspan",
+    name:      "C-SPAN",
+    icon:      "📺",
+    color:     "#1D4ED8",
+    colorBg:   "#EFF4FF",
+    coversheet: "",   // ← Paste Link to Coversheet here
+    rubric:     "",   // ← Paste Link to Rubric here (will embed inline)
+    artifact:   "",   // ← Paste YouTube link here (will auto-embed as video)
+    project:    "",   // ← Paste Link to Project here (C-SPAN only)
   },
 
   {
-    id: "court",
-    name: "Court",
-    icon: "⚖️",
-    color:   "#C2410C",
-    colorBg: "#FFF4EE",
-    coversheet: "",  // ← Paste Link to Coversheet here
-    rubric:     "",  // ← Paste Link to Rubric here
-    artifact:   "",  // ← Paste Artifact link here
+    id:        "court",
+    name:      "Court",
+    icon:      "⚖️",
+    color:     "#C2410C",
+    colorBg:   "#FFF4EE",
+    coversheet: "",   // ← Paste Link to Coversheet here
+    rubric:     "",   // ← Paste Link to Rubric here (will embed inline)
+    artifact:   "",   // ← Paste Artifact link here
   },
 
   {
-    id: "potus",
-    name: "POTUS",
-    icon: "🏛️",
-    color:   "#0F766E",
-    colorBg: "#EDFAF8",
-    coversheet: "",  // ← Paste Link to Coversheet here
-    rubric:     "",  // ← Paste Link to Rubric here
-    artifact:   "",  // ← Paste Artifact link here
+    id:        "potus",
+    name:      "POTUS",
+    icon:      "🏛️",
+    color:     "#0F766E",
+    colorBg:   "#EDFAF8",
+    coversheet: "",   // ← Paste Link to Coversheet here
+    rubric:     "",   // ← Paste Link to Rubric here (will embed inline)
+    artifact:   "",   // ← Paste Artifact link here
   }
 
 ];
@@ -333,6 +337,53 @@ const ASSIGNMENTS = [
    🚫  DO NOT EDIT BELOW THIS LINE
 ===================================================================== */
 
+/* ── URL HELPERS ── */
+
+function toPreviewUrl(url) {
+  if (!url) return '';
+  // Google Docs
+  if (url.includes('docs.google.com/document')) {
+    const id = url.match(/\/document\/d\/([^\/\?]+)/)?.[1];
+    return id ? `https://docs.google.com/document/d/${id}/preview` : url;
+  }
+  // Google Drive file
+  if (url.includes('drive.google.com/file/d/')) {
+    const id = url.match(/\/file\/d\/([^\/\?]+)/)?.[1];
+    return id ? `https://drive.google.com/file/d/${id}/preview` : url;
+  }
+  // Google Slides
+  if (url.includes('docs.google.com/presentation')) {
+    const id = url.match(/\/presentation\/d\/([^\/\?]+)/)?.[1];
+    return id ? `https://docs.google.com/presentation/d/${id}/preview` : url;
+  }
+  return url;
+}
+
+function toYouTubeEmbed(url) {
+  if (!url) return null;
+  // youtu.be/ID
+  const short = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (short) return `https://www.youtube.com/embed/${short[1]}`;
+  // youtube.com/watch?v=ID
+  const long = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+  if (long) return `https://www.youtube.com/embed/${long[1]}`;
+  return null;
+}
+
+function isYouTube(url) {
+  return !!url && (url.includes('youtube.com') || url.includes('youtu.be'));
+}
+
+/* ── TOGGLE RUBRIC EMBED ── */
+function toggleEmbed(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const showing = el.style.display === 'block';
+  el.style.display = showing ? 'none' : 'block';
+  btn.textContent  = showing ? 'Expand Rubric ▾' : 'Collapse ▴';
+}
+
+/* ── RENDER ENGINE ── */
 function render(html) {
   const app = document.getElementById('app');
   app.innerHTML = html;
@@ -340,14 +391,56 @@ function render(html) {
   requestAnimationFrame(() => { app.style.animation = 'fadeUp 0.2s ease both'; });
 }
 
-function linkBtn(url, label) {
-  if (url) return `<a class="btn btn-primary" href="${url}" target="_blank">${label} ↗</a>`;
-  return `<span class="btn-disabled">No Link Yet</span>`;
+function statusBadge(url) {
+  return url
+    ? `<span class="status-linked">Linked</span>`
+    : `<span class="status-missing">No link added yet</span>`;
 }
 
-function linkStatus(url) {
-  if (url) return `<span class="status-linked">Linked</span>`;
-  return `<span class="status-missing">No link added yet</span>`;
+/*
+  linkBlock(icon, label, url, type, blockId)
+  type: 'link' | 'rubric' | 'youtube'
+*/
+function linkBlock(icon, label, url, type, blockId) {
+  let embedHtml   = '';
+  let toggleBtn   = '';
+  let openBtn     = url
+    ? `<a class="btn btn-primary" href="${url}" target="_blank">Open ↗</a>`
+    : `<span class="btn-disabled">No Link Yet</span>`;
+
+  if (type === 'rubric' && url) {
+    const preview = toPreviewUrl(url);
+    toggleBtn = `<button class="btn btn-ghost" onclick="toggleEmbed('${blockId}', this)">Expand Rubric ▾</button>`;
+    embedHtml = `<div class="doc-embed" id="${blockId}">
+      <iframe src="${preview}" allowfullscreen></iframe>
+    </div>`;
+  }
+
+  if (type === 'youtube') {
+    const embedUrl = url ? toYouTubeEmbed(url) : null;
+    openBtn = url
+      ? `<a class="btn btn-primary" href="${url}" target="_blank">Open in YouTube ↗</a>`
+      : `<span class="btn-disabled">No Link Yet</span>`;
+    embedHtml = embedUrl
+      ? `<div class="youtube-embed"><iframe src="${embedUrl}" allowfullscreen></iframe></div>`
+      : '';
+  }
+
+  return `
+    <div class="link-block">
+      <div class="link-row">
+        <div class="link-row-icon">${icon}</div>
+        <div class="link-row-info">
+          <div class="link-row-label">${label}</div>
+          <div class="link-row-status">${statusBadge(url)}</div>
+        </div>
+        <div class="link-row-actions">
+          ${toggleBtn}
+          ${openBtn}
+        </div>
+      </div>
+      ${embedHtml}
+    </div>`;
 }
 
 /* ── HOME ── */
@@ -372,17 +465,18 @@ function goHome() {
 
     <div class="cards-grid">
       ${ASSIGNMENTS.map(a => {
-        const filled = [a.coversheet, a.rubric, a.artifact].filter(Boolean).length;
-        const hasAny = filled > 0;
+        const fields = [a.coversheet, a.rubric, a.artifact, a.project].filter(f => f !== undefined);
+        const filled = fields.filter(Boolean).length;
+        const total  = fields.length;
         return `
           <div class="assignment-card-home"
                style="--c-accent:${a.color}; --c-bg:${a.colorBg}"
                onclick="goDetail('${a.id}')">
             <div class="cc-icon-wrap">${a.icon}</div>
             <div class="cc-name">${a.name}</div>
-            <div class="cc-meta">${filled} of 3 links added</div>
-            <div class="cc-status ${hasAny ? '' : 'muted'}">
-              ${hasAny ? 'View links ↗' : 'No links yet'}
+            <div class="cc-meta">${filled} of ${total} links added</div>
+            <div class="cc-status ${filled > 0 ? '' : 'muted'}">
+              ${filled > 0 ? 'View links →' : 'No links yet'}
             </div>
           </div>`;
       }).join('')}
@@ -390,10 +484,24 @@ function goHome() {
   `);
 }
 
-/* ── DETAIL VIEW ── */
+/* ── DETAIL ── */
 function goDetail(id) {
   const a = ASSIGNMENTS.find(x => x.id === id);
   if (!a) return;
+
+  // Build link blocks
+  const blocks = [
+    linkBlock('📄', 'Link to Coversheet', a.coversheet, 'link',    `${id}-cs`),
+    linkBlock('📋', 'Link to Rubric',     a.rubric,     'rubric',  `${id}-rubric`),
+  ];
+
+  // Artifact — YouTube for C-SPAN, regular link for others
+  if (a.id === 'cspan') {
+    blocks.push(linkBlock('▶️', 'Artifact (Video)',  a.artifact, 'youtube', `${id}-artifact`));
+    blocks.push(linkBlock('🔗', 'Link to Project',  a.project,  'link',    `${id}-project`));
+  } else {
+    blocks.push(linkBlock('🗂️', 'Artifact', a.artifact, 'link', `${id}-artifact`));
+  }
 
   render(`
     <div class="detail-header" style="--c-accent:${a.color}; --c-bg:${a.colorBg}">
@@ -413,39 +521,11 @@ function goDetail(id) {
     </div>
 
     <div class="link-list" style="--c-accent:${a.color}; --c-bg:${a.colorBg}">
-
-      <div class="link-row">
-        <div class="link-row-icon">📄</div>
-        <div class="link-row-info">
-          <div class="link-row-label">Link to Coversheet</div>
-          <div class="link-row-status">${linkStatus(a.coversheet)}</div>
-        </div>
-        ${linkBtn(a.coversheet, 'Open Coversheet')}
-      </div>
-
-      <div class="link-row">
-        <div class="link-row-icon">📋</div>
-        <div class="link-row-info">
-          <div class="link-row-label">Link to Rubric</div>
-          <div class="link-row-status">${linkStatus(a.rubric)}</div>
-        </div>
-        ${linkBtn(a.rubric, 'Open Rubric')}
-      </div>
-
-      <div class="link-row">
-        <div class="link-row-icon">🗂️</div>
-        <div class="link-row-info">
-          <div class="link-row-label">Artifact</div>
-          <div class="link-row-status">${linkStatus(a.artifact)}</div>
-        </div>
-        ${linkBtn(a.artifact, 'Open Artifact')}
-      </div>
-
+      ${blocks.join('')}
     </div>
   `);
 }
 
-// Start
 goHome();
 </script>
 </body>
