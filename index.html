@@ -499,7 +499,7 @@ function goDetail(id) {
   if (a.id === 'cspan') {
     blocks.push(linkBlock('▶️', 'Link to Project',  a.artifact, 'youtube', `${id}-artifact`));
   } else {
-    blocks.push(linkBlock('🗂️', 'Link to Project', a.artifact, 'link', `${id}-artifact`));
+    blocks.push(linkBlock('🗂️', 'Artifact', a.artifact, 'link', `${id}-artifact`));
   }
 
   render(`
