@@ -498,6 +498,7 @@ function goDetail(id) {
   // Artifact — YouTube for C-SPAN, regular link for others
   if (a.id === 'cspan') {
     blocks.push(linkBlock('▶️', 'Link to Project',  a.artifact, 'youtube', `${id}-artifact`));
+    blocks.push(linkBlock('🗂️', 'Artifact', a.project, 'link', `${id}-project`));
   } else {
     blocks.push(linkBlock('🗂️', 'Artifact', a.artifact, 'link', `${id}-artifact`));
   }
